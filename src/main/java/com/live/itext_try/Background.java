@@ -27,7 +27,6 @@ class Background implements IEventHandler {
     public Background(PdfDocument pdf, String src) throws IOException {
         PdfDocument template = new PdfDocument(new PdfReader(src));
         
-        
         stationery_1 = template.getPage(1).copyAsFormXObject(pdf);
         stationery_2 = template.getPage(2).copyAsFormXObject(pdf);
         template.close();
