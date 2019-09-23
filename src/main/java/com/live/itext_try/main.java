@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * 
+ * 
+ * 
  */
 package com.live.itext_try;
 
@@ -54,8 +54,11 @@ public class main {
         parameters.put("fechaSeguimiento", "30 de agosto de 2019");
         parameters.put("estadoAtencion", "Cerrado");
 
-        itextR m = new itextR();
-        m.generateReport(parameters);
+        /*itextR m = new itextR();
+        m.generateReport(parameters);*/
+        
+        STRtoBinary st = new STRtoBinary("A");
+        System.out.println(st.toBinary());
     }
 
 }
