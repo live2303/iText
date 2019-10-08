@@ -53,12 +53,13 @@ public class main {
         parameters.put("comentarios3", "Se concluyó con el análisis del proceso de impresión. En dicho análisis se identificaron los controles existentes en la operación, las áreas de oportunidad y los controles a reforzar en la operación");
         parameters.put("fechaSeguimiento", "30 de agosto de 2019");
         parameters.put("estadoAtencion", "Cerrado");
+        parameters.put("tipoEv", "Riesgo");
 
-        /*itextR m = new itextR();
-        m.generateReport(parameters);*/
-        
+        itextR m = new itextR();
+        m.generateReport(parameters);
+        /*
         STRtoBinary st = new STRtoBinary("A");
-        System.out.println(st.toBinary());
+        System.out.println(st.toBinary());*/
     }
 
 }
