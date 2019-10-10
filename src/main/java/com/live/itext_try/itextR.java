@@ -45,7 +45,7 @@ public class itextR {
         PdfFont bold = PdfFontFactory.createFont(FontConstants.HELVETICA_BOLD);
         PdfFont italic = PdfFontFactory.createFont(FontConstants.HELVETICA_OBLIQUE);
         DeviceRgb BMcolor = new DeviceRgb(0, 39, 91);
-        DeviceRgb disableColor = new DeviceRgb(224, 224, 224);
+        DeviceRgb disableColor = new DeviceRgb(54, 54, 54);
         SolidLine line = new SolidLine(0.3f);
         line.setColor(disableColor);
 
@@ -57,9 +57,9 @@ public class itextR {
         Document document = new Document(pdfDoc); //, PageSize.LETTER
         document.setMargins(60, 40, 50, 40);
         document.setFont(regular).setFontSize(11);
-
-        Text noInfo = new Text("(No existe información)").setFont(italic).setFontColor(disableColor);
-        Text sinAfec = new Text("(Sin Afectación)").setFont(italic).setFontColor(disableColor);
+        
+        Text noInfo = new Text("No existe información").setFont(italic).setFontColor(disableColor);
+        Text sinAfec = new Text("\nSin Afectación").setFont(italic).setFontColor(disableColor);
 
         /*FOLIO*/
         Text folio = new Text((String) param.get("folioEvento")).setFont(bold).setFontSize(18).setUnderline();
@@ -100,9 +100,9 @@ public class itextR {
         /*Impacto */
         document.add(new Paragraph().add(new Text("Impacto/Consecuencia:").setFont(bold).setFontSize(12).setFontColor(BMcolor)).setTextAlignment(TextAlignment.JUSTIFIED));
 
-        Paragraph oper = new Paragraph(new Text("Operativo ").setFont(bold).setFontColor(param.get("operativo").equals("X") ? BMcolor : BMcolor)).setFontSize(11);
+        Paragraph oper = new Paragraph(new Text("Operativo: ").setFont(bold).setFontColor(param.get("operativo").equals("X") ? BMcolor : BMcolor)).setFontSize(11);
         if (!param.get("operativoAfectacion").equals("")) {
-            oper.add(new Text(String.format("(Nivel de afectación: %s)\n", (String) param.get("operativoAfectacion"))).setFont(italic));
+            oper.add(new Text(String.format("\tNivel de afectación: %s\n", (String) param.get("operativoAfectacion"))).setFont(italic));
         } else {
             oper.add(sinAfec);
         }
@@ -110,9 +110,9 @@ public class itextR {
             oper.add(new Text(String.format(" %s", (String) param.get("operativoDetalle"))).setFont(regular));
         }
 
-        Paragraph mon = new Paragraph(new Text("Monetario ").setFont(bold).setFontColor(param.get("monetario").equals("X") ? BMcolor : BMcolor)).setFontSize(11);
+        Paragraph mon = new Paragraph(new Text("Monetario: ").setFont(bold).setFontColor(param.get("monetario").equals("X") ? BMcolor : BMcolor)).setFontSize(11);
         if (!param.get("monetarioAfectacion").equals("")) {
-            mon.add(new Text(String.format("(Nivel de afectación: %s)\n", (String) param.get("monetarioAfectacion"))).setFont(italic));
+            mon.add(new Text(String.format("\tNivel de afectación: %s\n", (String) param.get("monetarioAfectacion"))).setFont(italic));
         } else {
             mon.add(sinAfec);
         }
@@ -120,9 +120,9 @@ public class itextR {
             mon.add(new Text(String.format(" %s", (String) param.get("monetarioDetalle"))).setFont(regular));
         }
 
-        Paragraph rep = new Paragraph(new Text("Reputación ").setFont(bold).setFontColor(param.get("reputacion").equals("X") ? BMcolor : BMcolor)).setFontSize(11);
+        Paragraph rep = new Paragraph(new Text("Reputación: ").setFont(bold).setFontColor(param.get("reputacion").equals("X") ? BMcolor : BMcolor)).setFontSize(11);
         if (!param.get("reputacionAfectacion").equals("")) {
-            rep.add(new Text(String.format("(Nivel de afectación: %s)\n", (String) param.get("reputacionAfectacion"))).setFont(italic));
+            rep.add(new Text(String.format("\tNivel de afectación: %s\n", (String) param.get("reputacionAfectacion"))).setFont(italic));
         } else {
             rep.add(sinAfec);
         }
@@ -130,9 +130,9 @@ public class itextR {
             rep.add(new Text(String.format(" %s", (String) param.get("reputacionDetalle"))).setFont(regular));
         }
 
-        Paragraph salud = new Paragraph(new Text("Salud ").setFont(bold).setFontColor(param.get("salud").equals("X") ? BMcolor : BMcolor)).setFontSize(11);
+        Paragraph salud = new Paragraph(new Text("Salud: ").setFont(bold).setFontColor(param.get("salud").equals("X") ? BMcolor : BMcolor)).setFontSize(11);
         if (!param.get("saludAfectacion").equals("")) {
-            salud.add(new Text(String.format("(Nivel de afectación: %s)\n", (String) param.get("saludAfectacion"))).setFont(italic));
+            salud.add(new Text(String.format("\tNivel de afectación: %s\n", (String) param.get("saludAfectacion"))).setFont(italic));
         } else {
             salud.add(sinAfec);
         }
@@ -142,7 +142,7 @@ public class itextR {
 
         Paragraph medA = new Paragraph(new Text("Medio Ambiente ").setFont(bold).setFontColor(param.get("medioAmbiente").equals("X") ? BMcolor : BMcolor)).setFontSize(11).setMarginBottom(15f);
         if (!param.get("medioAfectacion").equals("")) {
-            medA.add(new Text(String.format("(Nivel de afectación: %s)\n", (String) param.get("medioAfectacion"))).setFont(italic));
+            medA.add(new Text(String.format("\tNivel de afectación: %s\n", (String) param.get("medioAfectacion"))).setFont(italic));
         } else {
             medA.add(sinAfec);
         }
